@@ -292,8 +292,195 @@
   .social-icon:hover svg{fill:var(--brass);}
 
   /* reveal on scroll */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1;transform:translateY(0);}
+  .reveal{opacity:0;transform:translateY(22px) scale(0.985);transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s);}
+  .reveal.in{opacity:1;transform:translateY(0) scale(1);}
+
+  /* extra hover polish */
+  .yt-card, .book-banner, .team-card{transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;}
+  .yt-card:hover, .book-banner:hover, .team-card:hover{border-color:var(--brass);transform:translateY(-2px);box-shadow:0 12px 28px -18px rgba(20,24,31,0.35);}
+  .event-row{transition:background .3s ease, padding-left .3s ease;}
+  .event-row:hover{background:rgba(156,122,60,0.06);padding-left:10px;}
+  nav a{position:relative;}
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:-1px;width:0;height:1px;background:var(--brass);
+    transition:width .3s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .seal{will-change:transform;}
+
+  /* ---------- ARRO Innovation Foundation (AIF) — own fixed dark sub-theme ---------- */
+  #aif{
+    --af-bg:#0a0c13; --af-bg2:#11141f; --af-ink:#f3efe2; --af-muted:#9aa0b3;
+    --af-brass:#d4af6a; --af-line:rgba(212,175,106,0.22); --af-surface:#141825;
+    background:var(--af-bg);color:var(--af-ink);border-bottom:none;position:relative;overflow:hidden;
+    padding:100px 0 110px;
+  }
+  #aif::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(212,175,106,0.10), transparent 70%),
+      repeating-linear-gradient(transparent, transparent 63px, var(--af-line) 64px);
+    opacity:0.6;
+  }
+  #aif .wrap{position:relative;z-index:1;}
+
+  .aif-presents{
+    text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:0.22em;
+    text-transform:uppercase;color:var(--af-brass);margin-bottom:14px;
+  }
+  .aif-lockup{text-align:center;margin-bottom:10px;}
+  .aif-lockup .main{
+    font-family:var(--serif);font-weight:600;font-size:clamp(52px,9vw,96px);letter-spacing:0.02em;
+    color:var(--af-ink);line-height:1;
+    text-shadow:0 0 18px rgba(212,175,106,0.45), 0 0 42px rgba(212,175,106,0.2);
+  }
+  .aif-lockup .sub{
+    font-family:var(--mono);font-size:13.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--af-brass);
+    margin-top:14px;
+  }
+  .aif-tagline{
+    text-align:center;font-family:var(--mono);font-size:11.5px;letter-spacing:0.3em;text-transform:uppercase;
+    color:var(--af-muted);margin-top:18px;
+  }
+  .aif-intro{max-width:66ch;margin:22px auto 0;text-align:center;color:var(--af-muted);font-size:15.5px;}
+
+  .aif-framed{
+    max-width:860px;margin:48px auto 0;border:1.5px solid var(--af-brass);border-radius:4px;
+    padding:28px 32px;background:rgba(212,175,106,0.05);
+  }
+  .aif-framed h3{font-family:var(--serif);font-size:20px;margin-bottom:10px;color:var(--af-ink);}
+  .aif-framed p{color:var(--af-ink);font-size:14.5px;opacity:0.92;}
+
+  /* quick facts */
+  .aif-facts{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:52px;
+    background:var(--af-line);border:1px solid var(--af-line);border-radius:6px;overflow:hidden;
+  }
+  @media (max-width:760px){.aif-facts{grid-template-columns:repeat(2,1fr);}}
+  .aif-facts > div{background:var(--af-bg2);padding:26px 18px;text-align:center;}
+  .aif-facts strong{display:block;font-family:var(--serif);font-size:24px;color:var(--af-brass);}
+  .aif-facts span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.05em;text-transform:uppercase;color:var(--af-muted);margin-top:8px;}
+  .aif-fact-note{text-align:center;font-size:12px;color:var(--af-muted);margin-top:14px;max-width:70ch;margin-left:auto;margin-right:auto;}
+
+  .aif-subhead{text-align:center;margin-top:64px;margin-bottom:28px;}
+  .aif-subhead h3{font-family:var(--serif);font-size:28px;color:var(--af-ink);}
+  .aif-subhead .line{width:50px;height:2px;background:var(--af-brass);margin:14px auto 0;}
+
+  .aif-programs{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;}
+  @media (max-width:800px){.aif-programs{grid-template-columns:1fr;}}
+  .aif-card{
+    border:1px solid var(--af-line);border-radius:8px;padding:30px;background:var(--af-surface);
+    transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+  }
+  .aif-card:hover{transform:translateY(-3px);border-color:var(--af-brass);box-shadow:0 18px 40px -24px rgba(212,175,106,0.3);}
+  .aif-card.inspire{border-top:3px solid var(--af-brass);}
+  .aif-card.ignite{border-top:3px solid #7f8bb0;}
+  .aif-tag{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--af-brass);display:inline-block;margin-bottom:12px;
+  }
+  .aif-card h3{font-family:var(--serif);font-size:26px;margin-bottom:10px;color:var(--af-ink);}
+  .aif-card p{color:var(--af-muted);font-size:14.5px;margin-bottom:14px;}
+  .aif-card ul{margin:0;padding-left:18px;color:var(--af-ink);font-size:13.8px;opacity:0.92;}
+  .aif-card ul li{margin-bottom:6px;}
+
+  /* judging criteria */
+  .aif-criteria{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+  .aif-crit-card{border:1px solid var(--af-line);border-radius:6px;padding:20px;background:var(--af-surface);}
+  .aif-crit-card .idx{font-family:var(--mono);font-size:10.5px;color:var(--af-brass);letter-spacing:0.06em;}
+  .aif-crit-card h4{font-family:var(--serif);font-size:16.5px;margin:8px 0 6px;color:var(--af-ink);}
+  .aif-crit-card p{font-size:12.8px;color:var(--af-muted);}
+
+  /* selection stages */
+  .aif-stages{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+  .aif-stage{
+    display:flex;align-items:center;gap:9px;border:1px solid var(--af-line);border-radius:30px;
+    padding:10px 18px 10px 12px;background:var(--af-surface);font-size:13px;color:var(--af-ink);
+  }
+  .aif-stage .n{
+    width:22px;height:22px;border-radius:50%;background:var(--af-brass);color:#1a1405;
+    font-family:var(--mono);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+
+  /* timeline */
+  .aif-timeline{position:relative;margin-top:30px;padding-left:0;}
+  .aif-timeline .t-line{
+    position:absolute;left:50%;top:0;bottom:0;width:2px;
+    background:linear-gradient(var(--af-brass), var(--af-line));transform:translateX(-50%);
+  }
+  @media (max-width:760px){.aif-timeline .t-line{left:18px;}}
+  .t-row{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:34px;align-items:center;}
+  @media (max-width:760px){.t-row{grid-template-columns:1fr;padding-left:44px;}}
+  .t-row .t-card{
+    border:1px solid var(--af-line);border-radius:6px;padding:20px 22px;background:var(--af-surface);
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  .t-row .t-card:hover{border-color:var(--af-brass);transform:translateY(-2px);}
+  .t-row.right .t-card{grid-column:2;}
+  .t-row.left .t-card{grid-column:1;}
+  @media (max-width:760px){.t-row.right .t-card,.t-row.left .t-card{grid-column:1;}}
+  .t-date{font-family:var(--mono);font-size:11px;color:var(--af-brass);letter-spacing:0.04em;}
+  .t-card h4{font-family:var(--serif);font-size:18px;margin-top:6px;color:var(--af-ink);}
+  .t-card p{font-size:12.5px;color:var(--af-muted);margin-top:6px;}
+  .t-node{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:15px;height:15px;border-radius:50%;background:var(--af-bg);border:2px solid var(--af-brass);z-index:2;
+    box-shadow:0 0 12px rgba(212,175,106,0.6);
+  }
+  @media (max-width:760px){.t-node{left:18px;}}
+
+  /* rule book */
+  .aif-rulebook{
+    margin-top:64px;border:1px solid var(--af-line);border-radius:8px;padding:30px 32px;
+    background:var(--af-surface);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .aif-rulebook h3{font-family:var(--serif);font-size:21px;color:var(--af-ink);margin-bottom:6px;}
+  .aif-rulebook p{font-size:13.5px;color:var(--af-muted);max-width:50ch;}
+  .aif-pdf-btn{
+    font-family:var(--mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;
+    background:var(--af-brass);color:#1a1405;padding:13px 24px;border-radius:5px;white-space:nowrap;
+    transition:background .25s ease, color .25s ease;
+  }
+  .aif-pdf-btn:hover{background:var(--af-ink);}
+
+  /* participation form + certificate */
+  .aif-form-wrap{max-width:720px;margin:64px auto 0;border:1px solid var(--af-line);border-radius:8px;padding:36px;background:var(--af-surface);}
+  .aif-form-wrap h3{font-family:var(--serif);font-size:22px;margin-bottom:8px;color:var(--af-ink);}
+  .aif-form-wrap > p{color:var(--af-muted);font-size:14px;margin-bottom:24px;}
+  .aif-field{margin-bottom:18px;}
+  .aif-field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--af-muted);margin-bottom:7px;}
+  .aif-field input, .aif-field select{
+    width:100%;padding:11px 13px;border:1px solid var(--af-line);border-radius:5px;background:var(--af-bg2);
+    color:var(--af-ink);font-family:var(--sans);font-size:14.5px;
+  }
+  .aif-field input:focus, .aif-field select:focus{outline:none;border-color:var(--af-brass);}
+  .aif-radio-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .aif-radio{
+    flex:1;min-width:160px;border:1px solid var(--af-line);border-radius:6px;padding:13px 14px;cursor:pointer;
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .aif-radio input{margin-right:8px;}
+  .aif-radio.checked{border-color:var(--af-brass);background:rgba(212,175,106,0.08);}
+  .aif-radio .name{font-family:var(--serif);font-size:15px;color:var(--af-ink);}
+  .aif-note{
+    font-size:12.5px;color:var(--af-muted);background:rgba(212,175,106,0.08);border-left:2px solid var(--af-brass);
+    padding:12px 14px;border-radius:0 4px 4px 0;margin:20px 0;
+  }
+  .aif-submit{
+    width:100%;border:none;border-radius:5px;padding:14px;background:var(--af-brass);color:#1a1405;
+    font-family:var(--mono);font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;
+    transition:background .25s ease;
+  }
+  .aif-submit:hover{background:var(--af-ink);}
+
+  .aif-cert-wrap{display:none;margin-top:28px;text-align:center;}
+  .aif-cert-wrap canvas{max-width:100%;border:1px solid var(--af-line);border-radius:6px;}
+  .aif-download-btn{
+    margin-top:16px;display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;
+    background:var(--af-brass);color:#1a1405;padding:12px 22px;border-radius:5px;border:none;cursor:pointer;
+  }
+  .aif-download-btn:hover{background:var(--af-ink);}
 </style>
 </head>
 <body>
@@ -309,6 +496,7 @@
         <a href="#books">Books</a>
         <a href="#team">Team</a>
         <a href="#events">Events</a>
+        <a href="#aif">AIF</a>
       </nav>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">MENU</button>
@@ -501,6 +689,167 @@
   </div>
 </section>
 
+<section id="aif">
+  <div class="wrap">
+    <div class="aif-presents reveal">ARRO Presents</div>
+    <div class="aif-lockup reveal">
+      <div class="main">AIF</div>
+      <div class="sub">ARRO Innovation Foundation</div>
+    </div>
+    <p class="aif-tagline reveal">Ideas · Innovation · Impact</p>
+    <p class="aif-intro reveal">AIF is the innovation-focused foundation of ARRO — the framework through which young innovators present ideas, receive guidance, gain recognition, and compete through two dedicated competitions: AIF Inspire and AIF Ignite.</p>
+
+    <div class="aif-framed reveal">
+      <h3>Mission</h3>
+      <p>AIF provides the structure for student innovators to be guided, evaluated, and formally acknowledged for original work. This rule book governs participation, submission, evaluation, selection, recognition, and guidance for both AIF Inspire and AIF Ignite. Inspire the idea. Ignite the innovator.</p>
+    </div>
+
+    <div class="aif-facts reveal">
+      <div><strong>Playgroup–12</strong><span>Eligible classes</span></div>
+      <div><strong>Up to 9</strong><span>Members per team</span></div>
+      <div><strong>3–6</strong><span>Entries per year</span></div>
+      <div><strong>₹1,000</strong><span>Winner prize, per track*</span></div>
+    </div>
+    <p class="aif-fact-note reveal">*Subject to ARRO's monthly revenue condition — see the full rule book. Where the cash prize doesn't apply, the winner still receives the applicable certificate and recognition. Individual and team entries are both accepted.</p>
+
+    <div class="aif-subhead reveal"><h3>The two tracks</h3><div class="line"></div></div>
+    <div class="aif-programs">
+      <div class="aif-card inspire reveal">
+        <span class="aif-tag">Open category</span>
+        <h3>AIF Inspire</h3>
+        <p>A competition designed to encourage innovation that can inspire, help people, solve a problem, create value, or introduce a meaningful new idea.</p>
+        <ul>
+          <li>Any category of innovation, provided it meets AIF's originality and submission requirements</li>
+          <li>Open to individuals and teams, Playgroup through Class 12</li>
+          <li>Existing inventions may be improved and entered here</li>
+        </ul>
+      </div>
+      <div class="aif-card ignite reveal">
+        <span class="aif-tag">Focused category</span>
+        <h3>AIF Ignite</h3>
+        <p>A higher-difficulty competition intended to ignite the fire of innovation for humanity, the environment, or groundbreaking advancement.</p>
+        <ul>
+          <li>Human safety innovation</li>
+          <li>Environmental safety innovation</li>
+          <li>Genuinely groundbreaking innovation — AIF determines whether an idea meets this threshold</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="aif-subhead reveal"><h3>Judging criteria</h3><div class="line"></div></div>
+    <div class="aif-criteria reveal">
+      <div class="aif-crit-card"><span class="idx">01</span><h4>Innovation / Originality</h4><p>Novel thinking and how clearly the idea differs from existing solutions.</p></div>
+      <div class="aif-crit-card"><span class="idx">02</span><h4>Real-world Usefulness</h4><p>Whether the innovation addresses a genuine need or has practical use.</p></div>
+      <div class="aif-crit-card"><span class="idx">03</span><h4>Technical Quality</h4><p>Design quality, components, implementation, and understanding of the system.</p></div>
+      <div class="aif-crit-card"><span class="idx">04</span><h4>Impact</h4><p>Potential benefit to people, communities, or the relevant problem area.</p></div>
+      <div class="aif-crit-card"><span class="idx">05</span><h4>Submission Quality</h4><p>Clarity, completeness, and ability to communicate the concept.</p></div>
+    </div>
+
+    <div class="aif-subhead reveal"><h3>Selection process</h3><div class="line"></div></div>
+    <div class="aif-stages reveal">
+      <div class="aif-stage"><span class="n">1</span>Submission &amp; initial review</div>
+      <div class="aif-stage"><span class="n">2</span>Round 1 judging</div>
+      <div class="aif-stage"><span class="n">3</span>Up to 9 finalists selected</div>
+      <div class="aif-stage"><span class="n">4</span>Finalist Q&amp;A</div>
+      <div class="aif-stage"><span class="n">5</span>Final judging</div>
+      <div class="aif-stage"><span class="n">6</span>One winner per track</div>
+    </div>
+
+    <div class="aif-subhead reveal"><h3>Timeline</h3><div class="line"></div></div>
+    <div class="aif-timeline reveal">
+      <div class="t-line"></div>
+      <div class="t-row left">
+        <div class="t-card"><span class="t-date">21 March</span><h4>Registrations open</h4></div>
+        <div></div>
+        <div class="t-node"></div>
+      </div>
+      <div class="t-row right">
+        <div></div>
+        <div class="t-card"><span class="t-date">18 April</span><h4>Submission deadline</h4></div>
+        <div class="t-node"></div>
+      </div>
+      <div class="t-row left">
+        <div class="t-card"><span class="t-date">6 May</span><h4>Round 1 result</h4></div>
+        <div></div>
+        <div class="t-node"></div>
+      </div>
+      <div class="t-row right">
+        <div></div>
+        <div class="t-card"><span class="t-date">9 May</span><h4>Finalist Q&amp;A</h4></div>
+        <div class="t-node"></div>
+      </div>
+      <div class="t-row left">
+        <div class="t-card"><span class="t-date">12 May</span><h4>Finalist / final stage</h4><p>Planned annual schedule — may vary; the latest official AIF announcement takes precedence.</p></div>
+        <div></div>
+        <div class="t-node"></div>
+      </div>
+    </div>
+
+    <div class="aif-framed reveal">
+      <h3>Mentorship &amp; what comes next</h3>
+      <p>Guidance may be provided by ARRO members and, where available, relevant experts — covering idea development, technical reasoning, prototyping, and documentation. Mentoring doesn't guarantee selection or winning. Outstanding participants may also be considered for an internship, an ARRO project collaboration, or a contributor role — subject to suitability, availability, and ARRO's applicable rules.</p>
+    </div>
+
+    <div class="aif-rulebook reveal">
+      <div>
+        <h3>Official Guidelines &amp; Rule Book</h3>
+        <p>Full eligibility, submission, judging, prize, and conduct rules for AIF Inspire and AIF Ignite.</p>
+      </div>
+      <a class="aif-pdf-btn" href="AIF-Rule-Book.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
+    </div>
+
+    <div class="aif-form-wrap reveal">
+      <h3>Register your entry</h3>
+      <p>Fill in your details to generate your official ARRO acknowledgment letter. After generating it, comment your entry under ARRO Innovation's official AIF post to confirm your participation.</p>
+
+      <form id="aifForm">
+        <div class="aif-field">
+          <label>Full name</label>
+          <input type="text" id="aifName" required>
+        </div>
+        <div class="aif-field">
+          <label>Class</label>
+          <input type="text" id="aifClass" required placeholder="e.g. Class 9">
+        </div>
+        <div class="aif-field">
+          <label>Track</label>
+          <div class="aif-radio-row">
+            <label class="aif-radio checked" id="radioInspire">
+              <input type="radio" name="aifTrack" value="AIF Inspire" checked>
+              <span class="name">AIF Inspire</span>
+            </label>
+            <label class="aif-radio" id="radioIgnite">
+              <input type="radio" name="aifTrack" value="AIF Ignite">
+              <span class="name">AIF Ignite</span>
+            </label>
+          </div>
+        </div>
+        <div class="aif-field" id="categoryOpenWrap">
+          <label>Innovation category</label>
+          <input type="text" id="aifCategoryOpen" placeholder="e.g. Robotics, AI, Agriculture...">
+        </div>
+        <div class="aif-field" id="categoryIgniteWrap" style="display:none;">
+          <label>Innovation category</label>
+          <select id="aifCategoryIgnite">
+            <option>Human Safety</option>
+            <option>Environmental Safety</option>
+            <option>Groundbreaking Innovation</option>
+          </select>
+        </div>
+
+        <div class="aif-note">After downloading your acknowledgment letter, comment your name and entry under ARRO Innovation's official AIF announcement post to complete your participation.</div>
+
+        <button type="submit" class="aif-submit">Generate acknowledgment letter</button>
+      </form>
+
+      <div class="aif-cert-wrap" id="aifCertWrap">
+        <canvas id="aifCertCanvas" width="850" height="1050"></canvas><br>
+        <button class="aif-download-btn" id="aifDownloadBtn">Download acknowledgment letter ↓</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap footer-grid">
     <div>
@@ -538,11 +887,192 @@
   navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
   mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mainNav.classList.remove('open')));
 
-  // scroll reveal
+  // scroll reveal (staggered within each grid/group)
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.15});
+  document.querySelectorAll('.track-grid, .desig-list, .aif-programs, .aif-facts, .aif-criteria, .aif-stages').forEach(group => {
+    [...group.children].forEach((el, i) => { el.style.setProperty('--d', (i * 0.08) + 's'); });
+  });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // AIF — track radio toggle + category field swap
+  const radioInspire = document.getElementById('radioInspire');
+  const radioIgnite = document.getElementById('radioIgnite');
+  const categoryOpenWrap = document.getElementById('categoryOpenWrap');
+  const categoryIgniteWrap = document.getElementById('categoryIgniteWrap');
+
+  function setTrack(track){
+    radioInspire.classList.toggle('checked', track === 'inspire');
+    radioIgnite.classList.toggle('checked', track === 'ignite');
+    categoryOpenWrap.style.display = track === 'inspire' ? 'block' : 'none';
+    categoryIgniteWrap.style.display = track === 'ignite' ? 'block' : 'none';
+  }
+  radioInspire.addEventListener('click', () => setTrack('inspire'));
+  radioIgnite.addEventListener('click', () => setTrack('ignite'));
+
+  // AIF — certificate generation
+  const aifForm = document.getElementById('aifForm');
+  const aifCertWrap = document.getElementById('aifCertWrap');
+  const aifCanvas = document.getElementById('aifCertCanvas');
+  const aifDownloadBtn = document.getElementById('aifDownloadBtn');
+
+  function wrapText(ctx, text, x, y, maxWidth, lineHeight){
+    const words = text.split(' ');
+    let line = '';
+    let lines = [];
+    for(const word of words){
+      const test = line + word + ' ';
+      if(ctx.measureText(test).width > maxWidth && line !== ''){
+        lines.push(line.trim());
+        line = word + ' ';
+      } else {
+        line = test;
+      }
+    }
+    lines.push(line.trim());
+    lines.forEach((l, i) => ctx.fillText(l, x, y + i * lineHeight));
+    return lines.length;
+  }
+
+  aifForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('aifName').value.trim();
+    const cls = document.getElementById('aifClass').value.trim();
+    const track = document.querySelector('input[name="aifTrack"]:checked').value;
+    const category = track === 'AIF Inspire'
+      ? document.getElementById('aifCategoryOpen').value.trim()
+      : document.getElementById('aifCategoryIgnite').value;
+
+    const ctx = aifCanvas.getContext('2d');
+    const w = aifCanvas.width, h = aifCanvas.height;
+    const marginX = 70;
+    const textWidth = w - marginX * 2;
+
+    // background — plain letter paper
+    ctx.fillStyle = '#fbfaf6';
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#d9d3c4';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(18, 18, w - 36, h - 36);
+
+    const drawContent = () => {
+      ctx.textAlign = 'left';
+
+      // letterhead
+      ctx.fillStyle = '#1c2a4a';
+      ctx.font = '600 20px "Newsreader", Georgia, serif';
+      ctx.fillText('ARRO Innovation Foundation', marginX + 76, 72);
+      ctx.fillStyle = '#9c7a3c';
+      ctx.font = '600 10.5px "IBM Plex Mono", monospace';
+      ctx.fillText('AIF · ARROTICS ROBOTICS RESEARCH OPTIMUM', marginX + 76, 90);
+      ctx.fillStyle = '#5b5f6a';
+      ctx.font = '400 11.5px Inter, sans-serif';
+      ctx.fillText('Jorhat & Sivasagar, Assam, India', marginX + 76, 108);
+
+      ctx.strokeStyle = '#d9d3c4';
+      ctx.beginPath(); ctx.moveTo(marginX, 135); ctx.lineTo(w - marginX, 135); ctx.stroke();
+
+      // date, right-aligned
+      const today = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
+      ctx.textAlign = 'right';
+      ctx.fillStyle = '#5b5f6a';
+      ctx.font = '400 12.5px Inter, sans-serif';
+      ctx.fillText(today, w - marginX, 165);
+      ctx.textAlign = 'left';
+
+      // recipient
+      ctx.fillStyle = '#5b5f6a';
+      ctx.font = '400 12.5px Inter, sans-serif';
+      ctx.fillText('To,', marginX, 165);
+      ctx.fillStyle = '#14181f';
+      ctx.font = '600 20px "Newsreader", Georgia, serif';
+      ctx.fillText(name || 'Participant Name', marginX, 195);
+      ctx.fillStyle = '#5b5f6a';
+      ctx.font = '400 13px Inter, sans-serif';
+      ctx.fillText('Class ' + (cls || '—'), marginX, 216);
+
+      // subject
+      ctx.fillStyle = '#1c2a4a';
+      ctx.font = '600 14px Inter, sans-serif';
+      ctx.fillText('Subject: Acknowledgment of registration — ' + track, marginX, 255);
+
+      // salutation
+      ctx.fillStyle = '#14181f';
+      ctx.font = '400 14.5px Inter, sans-serif';
+      ctx.fillText('Dear ' + (name ? name.split(' ')[0] : 'Participant') + ',', marginX, 288);
+
+      // body
+      ctx.font = '400 14.5px Inter, sans-serif';
+      ctx.fillStyle = '#14181f';
+      let y = 318;
+      const lh = 24;
+
+      const p1 = `This letter acknowledges that you have successfully registered with the ARRO Innovation Foundation (AIF) under the ${track} track, of Class ${cls || '—'}, in the category of "${category || 'General Innovation'}". Your registration has been recorded automatically by ARRO's website system.`;
+      y += wrapText(ctx, p1, marginX, y, textWidth, lh) * lh + 18;
+
+      const p2 = `Please refer to the official AIF Guidelines & Rule Book for complete eligibility, submission, judging, prize, and timeline details. To complete your participation, kindly comment your entry under ARRO Innovation's official AIF announcement post.`;
+      y += wrapText(ctx, p2, marginX, y, textWidth, lh) * lh + 18;
+
+      const p3 = `We look forward to reviewing your submission.`;
+      y += wrapText(ctx, p3, marginX, y, textWidth, lh) * lh + 50;
+
+      // sign-off
+      ctx.fillStyle = '#14181f';
+      ctx.font = '400 14.5px Inter, sans-serif';
+      ctx.fillText('Regards,', marginX, y);
+      ctx.fillStyle = '#1c2a4a';
+      ctx.font = '600 16px "Newsreader", Georgia, serif';
+      ctx.fillText('ARRO Innovation Foundation (AIF)', marginX, y + 26);
+      ctx.fillStyle = '#5b5f6a';
+      ctx.font = 'italic 400 12px Inter, sans-serif';
+      ctx.fillText('Issued electronically via the ARRO website system', marginX, y + 46);
+
+      // seal, bottom-right
+      ctx.save();
+      ctx.translate(w - marginX - 54, y + 10);
+      ctx.strokeStyle = '#9c7a3c';
+      ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(0, 0, 40, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, 0, 34, 0, Math.PI * 2); ctx.setLineDash([2,3]); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#1c2a4a';
+      ctx.font = 'italic 500 14px "Newsreader", Georgia, serif';
+      ctx.fillText('ARRO', 0, 2);
+      ctx.fillStyle = '#5b5f6a';
+      ctx.font = '400 6.5px "IBM Plex Mono", monospace';
+      ctx.fillText('OFFICIAL SEAL', 0, 13);
+      ctx.restore();
+
+      // footer
+      ctx.strokeStyle = '#d9d3c4';
+      ctx.beginPath(); ctx.moveTo(marginX, h - 56); ctx.lineTo(w - marginX, h - 56); ctx.stroke();
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#5b5f6a';
+      ctx.font = '400 10px "IBM Plex Mono", monospace';
+      ctx.fillText('ARRO INNOVATION FOUNDATION · AIF', marginX, h - 36);
+
+      aifCertWrap.style.display = 'block';
+      aifCertWrap.scrollIntoView({behavior:'smooth', block:'center'});
+    };
+
+    const logoImg = new Image();
+    logoImg.onload = () => {
+      ctx.drawImage(logoImg, marginX, 46, 56, 56);
+      drawContent();
+    };
+    logoImg.onerror = drawContent;
+    logoImg.src = document.querySelector('.wordmark img').src;
+  });
+
+  aifDownloadBtn.addEventListener('click', () => {
+    const name = document.getElementById('aifName').value.trim() || 'participant';
+    const link = document.createElement('a');
+    link.download = 'ARRO-AIF-Acknowledgment-Letter-' + name.replace(/\s+/g,'-') + '.png';
+    link.href = aifCanvas.toDataURL('image/png');
+    link.click();
+  });
 </script>
 
 </body>
