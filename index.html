@@ -442,6 +442,36 @@
     transition:background .25s ease, color .25s ease;
   }
   .aif-pdf-btn:hover{background:var(--af-ink);}
+  .aif-rulebook.submit .aif-pdf-btn{background:transparent;border:1px solid var(--af-brass);color:var(--af-brass);}
+  .aif-rulebook.submit .aif-pdf-btn:hover{background:var(--af-brass);color:#1a1405;}
+
+  /* FAQ accordion */
+  .aif-faq-list{display:flex;flex-direction:column;gap:10px;max-width:800px;margin:0 auto;}
+  .aif-faq-item{border:1px solid var(--af-line);border-radius:6px;background:var(--af-surface);overflow:hidden;}
+  .aif-faq-item summary{
+    padding:16px 20px;cursor:pointer;font-family:var(--serif);font-size:15.5px;color:var(--af-ink);
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .aif-faq-item summary::-webkit-details-marker{display:none;}
+  .aif-faq-item summary::after{content:'+';font-family:var(--mono);color:var(--af-brass);font-size:18px;flex-shrink:0;}
+  .aif-faq-item[open] summary::after{content:'−';}
+  .aif-faq-item .faq-body{padding:0 20px 18px;color:var(--af-muted);font-size:13.8px;line-height:1.65;}
+
+  /* share / comment button */
+  .aif-share-btn{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
+    border:1px solid var(--af-brass);color:var(--af-brass);padding:10px 18px;border-radius:5px;
+    display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+    transition:background .25s ease, color .25s ease;
+  }
+  .aif-share-btn:hover{background:var(--af-brass);color:#1a1405;}
+
+  /* recognition / hall of entries */
+  .aif-hall-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;}
+  @media (max-width:760px){.aif-hall-grid{grid-template-columns:1fr;}}
+  .aif-hall-card{border:1px dashed var(--af-line);border-radius:6px;padding:28px 20px;text-align:center;background:var(--af-surface);}
+  .aif-hall-card .label{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--af-brass);}
+  .aif-hall-card .tba{font-family:var(--serif);font-size:19px;color:var(--af-muted);margin-top:10px;}
 
   /* participation form + certificate */
   .aif-form-wrap{max-width:720px;margin:64px auto 0;border:1px solid var(--af-line);border-radius:8px;padding:36px;background:var(--af-surface);}
@@ -736,6 +766,21 @@
       </div>
     </div>
 
+    <div class="aif-subhead reveal"><h3>Which track fits your idea?</h3><div class="line"></div></div>
+    <div class="aif-programs">
+      <div class="aif-card inspire reveal">
+        <span class="aif-tag">Inspire example</span>
+        <h3 style="font-size:19px;">Study-planner app</h3>
+        <p>A mobile app that helps students organize their study schedule with reminders and progress tracking. Useful, original, and open to any category — a clear Inspire entry.</p>
+      </div>
+      <div class="aif-card ignite reveal">
+        <span class="aif-tag">Ignite example</span>
+        <h3 style="font-size:19px;">Flood-alert sensor device</h3>
+        <p>A low-cost device that sends SMS warnings to riverside villages using water-level sensors. Directly addresses human and environmental safety — an Ignite-level entry.</p>
+      </div>
+    </div>
+    <p class="aif-fact-note reveal">A faster algorithm or a more advanced robot is impressive, but technical difficulty alone doesn't qualify it for Ignite — it has to clearly serve human safety, environmental safety, or be genuinely groundbreaking. Everything else belongs in Inspire.</p>
+
     <div class="aif-subhead reveal"><h3>Judging criteria</h3><div class="line"></div></div>
     <div class="aif-criteria reveal">
       <div class="aif-crit-card"><span class="idx">01</span><h4>Innovation / Originality</h4><p>Novel thinking and how clearly the idea differs from existing solutions.</p></div>
@@ -790,12 +835,56 @@
       <p>Guidance may be provided by ARRO members and, where available, relevant experts — covering idea development, technical reasoning, prototyping, and documentation. Mentoring doesn't guarantee selection or winning. Outstanding participants may also be considered for an internship, an ARRO project collaboration, or a contributor role — subject to suitability, availability, and ARRO's applicable rules.</p>
     </div>
 
+    <div class="aif-subhead reveal"><h3>Frequently asked</h3><div class="line"></div></div>
+    <div class="aif-faq-list reveal">
+      <details class="aif-faq-item">
+        <summary>Can I submit more than one innovation?</summary>
+        <div class="faq-body">Yes — a minimum of 3 and a maximum of 6 submissions per participant per year. Each individual innovation can only be entered into one track, either Inspire or Ignite.</div>
+      </details>
+      <details class="aif-faq-item">
+        <summary>Can I work in a team?</summary>
+        <div class="faq-body">Yes, both individual and team participation are allowed. A team can have up to 9 members.</div>
+      </details>
+      <details class="aif-faq-item">
+        <summary>Do I need a working prototype?</summary>
+        <div class="faq-body">No — a physical prototype is optional. A clear drawing or design of your proposed innovation is an acceptable substitute.</div>
+      </details>
+      <details class="aif-faq-item">
+        <summary>Can I use AI tools to help with my submission?</summary>
+        <div class="faq-body">Yes, for coding support or writing your synopsis. But the underlying innovation, concept, and thinking must be your own — AI assistance doesn't transfer ownership of the idea.</div>
+      </details>
+      <details class="aif-faq-item">
+        <summary>How is AIF Ignite different from AIF Inspire?</summary>
+        <div class="faq-body">Ignite is reserved for human safety, environmental safety, or genuinely groundbreaking innovation. Technical difficulty alone doesn't qualify an entry for Ignite — AIF determines whether an idea meets that threshold.</div>
+      </details>
+      <details class="aif-faq-item">
+        <summary>Will I definitely get the ₹1,000 prize if I win?</summary>
+        <div class="faq-body">The cash prize is subject to ARRO's monthly revenue condition. If it doesn't apply that cycle, the winner still receives the applicable certificate and recognition.</div>
+      </details>
+      <details class="aif-faq-item">
+        <summary>What happens after I register on the website?</summary>
+        <div class="faq-body">You'll receive your acknowledgment letter instantly. You then need to submit your full entry — synopsis, drawings/prototype, and code if applicable — through the AIF Submission Form, and comment your entry under ARRO Innovation's official AIF post to complete participation.</div>
+      </details>
+      <details class="aif-faq-item">
+        <summary>Does winning guarantee a role at ARRO?</summary>
+        <div class="faq-body">No. Outstanding participants may be considered for an internship, project collaboration, or contributor role, but this is subject to suitability, availability, and ARRO's applicable rules.</div>
+      </details>
+    </div>
+
     <div class="aif-rulebook reveal">
       <div>
         <h3>Official Guidelines &amp; Rule Book</h3>
         <p>Full eligibility, submission, judging, prize, and conduct rules for AIF Inspire and AIF Ignite.</p>
       </div>
       <a class="aif-pdf-btn" href="AIF-Rule-Book.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
+    </div>
+
+    <div class="aif-rulebook submit reveal">
+      <div>
+        <h3>Submit your entry</h3>
+        <p>Synopsis, problem explanation, drawings or prototype, and code (if applicable) are submitted through the AIF Submission Form — separate from registration below.</p>
+      </div>
+      <a class="aif-pdf-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeVVFaVMnbPoI8gH1bDf77XfMoiq4ZxkEnQUlKBAhgeNsGbHA/viewform?usp=publish-editor" id="aifSubmissionLink" target="_blank" rel="noopener">Open submission form ↗</a>
     </div>
 
     <div class="aif-form-wrap reveal">
@@ -844,8 +933,17 @@
 
       <div class="aif-cert-wrap" id="aifCertWrap">
         <canvas id="aifCertCanvas" width="850" height="1050"></canvas><br>
-        <button class="aif-download-btn" id="aifDownloadBtn">Download acknowledgment letter ↓</button>
+        <button class="aif-download-btn" id="aifDownloadBtn">Download acknowledgment letter ↓</button><br>
+        <a class="aif-share-btn" href="https://youtube.com/@arro_company" target="_blank" rel="noopener">Comment on ARRO INNOVATIONS to confirm ↗</a>
       </div>
+    </div>
+
+    <div class="aif-subhead reveal"><h3>Recognition</h3><div class="line"></div></div>
+    <p class="aif-fact-note reveal" style="margin-bottom:0;">Finalists, winners, and entries given special recognition will be listed here once each AIF cycle concludes.</p>
+    <div class="aif-hall-grid reveal">
+      <div class="aif-hall-card"><span class="label">Winner — AIF Inspire</span><div class="tba">To be announced</div></div>
+      <div class="aif-hall-card"><span class="label">Winner — AIF Ignite</span><div class="tba">To be announced</div></div>
+      <div class="aif-hall-card"><span class="label">Special Recognition</span><div class="tba">To be announced</div></div>
     </div>
   </div>
 </section>
@@ -891,7 +989,7 @@
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.15});
-  document.querySelectorAll('.track-grid, .desig-list, .aif-programs, .aif-facts, .aif-criteria, .aif-stages').forEach(group => {
+  document.querySelectorAll('.track-grid, .desig-list, .aif-programs, .aif-facts, .aif-criteria, .aif-stages, .aif-hall-grid').forEach(group => {
     [...group.children].forEach((el, i) => { el.style.setProperty('--d', (i * 0.08) + 's'); });
   });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
